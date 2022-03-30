@@ -1,3 +1,13 @@
-
+.browserslistrc
+.classpath
+.dockerignore
+.factorypath
+.git
+.gitignore
+.mvn
+.project
+.settings
+.vscode
+.odo
 .odo/env
 .odo/odo-file-index.json
