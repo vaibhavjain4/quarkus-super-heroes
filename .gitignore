@@ -11,3 +11,9 @@
 .odo
 .odo/env
 .odo/odo-file-index.json
+!event-statistics/
+!load-super-heroes/
+!rest-fights/
+!rest-heroes/
+!rest-villains/
+!ui-super-heroes/
