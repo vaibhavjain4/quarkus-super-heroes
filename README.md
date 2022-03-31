@@ -26,10 +26,16 @@ cd rest-villains
  
  oc expose svc/rest-villains --port=8084
  
- oc get route -> access application on this route
+ oc get route -> access application on this route, remember to use http://\<route\>
 
 oc new-app --name heroesdb -e POSTGRESQL_USER=superman -e POSTGRESQL_PASSWORD=superman -e POSTGRESQL_DATABASE=heroes_database postgresql:10-el8
 
 cd rest-heroes
 
+./mvnw clean package -Dquarkus.kubernetes.deploy=true -Dmaven.test.skip -Dquarkus.openshift.ports."ports".container-port=8083
 
+ oc expose svc/rest-villains --port=8083
+ 
+ oc get route -> access application on this route, remember to use http://\<route\>
+
+Login to console -> Developer => Click on add container images 
