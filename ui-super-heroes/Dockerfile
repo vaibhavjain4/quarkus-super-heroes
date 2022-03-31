@@ -30,7 +30,7 @@ RUN npm run build
 FROM nginxinc/nginx-unprivileged AS runner
 
 #### copy nginx conf
-COPY --from=codeclone ./ui-super-heroes/nginx/*.conf /etc/nginx/conf.d/
+COPY --from=codeclone /opt/quarkus-super-heroes/ui-super-heroes/nginx/*.conf /etc/nginx/conf.d/
 
 #USER 1001
 
