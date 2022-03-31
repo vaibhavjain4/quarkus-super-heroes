@@ -94,7 +94,7 @@ export class FightService {
     // to determine the Content-Type header
     const consumes: string[] = [];
 
-    return this.httpClient.get<Array<Fight>>(`${this.basePath}/api/fights`,
+    return this.httpClient.get<Array<Fight>>(`rest-fights:8082/api/fights`,
       {
         withCredentials: this.configuration.withCredentials,
         headers: headers,
@@ -129,7 +129,7 @@ export class FightService {
     // to determine the Content-Type header
     const consumes: string[] = [];
 
-    return this.httpClient.get<ModelString>(`${this.basePath}/api/fights/hello`,
+    return this.httpClient.get<ModelString>(`rest-fights:8082/api/fights/hello`,
       {
         withCredentials: this.configuration.withCredentials,
         headers: headers,
@@ -169,7 +169,7 @@ export class FightService {
     // to determine the Content-Type header
     const consumes: string[] = [];
 
-    return this.httpClient.get<Fight>(`${this.basePath}/api/fights/${encodeURIComponent(String(id))}`,
+    return this.httpClient.get<Fight>(`rest-fights:8082/api/fights/${encodeURIComponent(String(id))}`,
       {
         withCredentials: this.configuration.withCredentials,
         headers: headers,
@@ -219,7 +219,7 @@ export class FightService {
       headers = headers.set('Content-Type', httpContentTypeSelected);
     }
 
-    return this.httpClient.post<URI>(`${this.basePath}/api/fights`,
+    return this.httpClient.post<URI>(`rest-fights:8082/api/fights`,
       body,
       {
         withCredentials: this.configuration.withCredentials,
@@ -257,7 +257,7 @@ export class FightService {
     // to determine the Content-Type header
     const consumes: string[] = [];
 
-    return this.httpClient.get<Fighters>(`${this.basePath}/api/fights/randomfighters`,
+    return this.httpClient.get<Fighters>(`rest-fights:8082/api/fights/randomfighters`,
       {
         withCredentials: this.configuration.withCredentials,
         headers: headers,
