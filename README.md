@@ -8,7 +8,8 @@ Make sure to refer to original quarkus super heroes workshop : https://quarkus.i
 
 ## Demo Recording 
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/421h2h9OUFY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<img width="1153" alt="image" src="https://user-images.githubusercontent.com/26201808/161100693-53f90968-515e-4818-b276-309a92242f67.png">
+
 
 <h3><b> https://youtu.be/421h2h9OUFY </b></h3> 
 
