@@ -1,4 +1,6 @@
-FROM openshift-pipelines/pipelines-git-init-rhel8 AS codeclone
+FROM registry.access.redhat.com/ubi8-init AS codeclone
+
+RUN yum install git -y 
 
 RUN git clone https://github.com/vaibhavjain4/quarkus-super-heroes.git -b master
 
