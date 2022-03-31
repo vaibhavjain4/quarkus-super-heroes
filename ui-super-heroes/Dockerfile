@@ -10,8 +10,6 @@ RUN chown 1001 /opt/app-root/src \
 
 COPY --chown=1001:root . /opt/app-root/src/
 
-RUN 
-
 USER 1001
 
 RUN npm rebuild esbuild
