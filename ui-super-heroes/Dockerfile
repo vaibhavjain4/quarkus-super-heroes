@@ -1,7 +1,7 @@
 FROM registry.access.redhat.com/ubi8-init AS codeclone
 
 WORKDIR /opt/
-RUN dnf -y install git && dnf clean all && git clone https://github.com/vaibhavjain4/quarkus-super-heroes.git -b master && ls /opt
+RUN dnf -y install git && dnf clean all && git clone https://github.com/vaibhavjain4/quarkus-super-heroes.git -b master && echo pwd
 
 
 ### STAGE 1: Build ###
@@ -18,7 +18,7 @@ FROM node:lts-alpine AS build
 #    && chown 1001:root /usr/src/app
 
 #### copy both 'package.json' and 'package-lock.json' (if available)
-COPY --from=codeclone /opt/quarkus-super-heroes/ui-super-hereos  /usr/src/app
+COPY --from=codeclone ./quarkus-super-heroes/ui-super-heroes  /usr/src/app
 
 
 RUN npm rebuild esbuild
