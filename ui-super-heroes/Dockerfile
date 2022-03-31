@@ -12,7 +12,7 @@ USER 1001
 
 
 #### make the 'app' folder the current working directory
-WORKDIR /usr/src/app
+#WORKDIR /usr/src/app
 
 #RUN chown 1001 /usr/src/app \
     && chmod "g+rwX" /usr/src/app \
