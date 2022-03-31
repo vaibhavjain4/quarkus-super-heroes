@@ -43,5 +43,14 @@ cd rest-heroes
  cd rest-fights
  
  ./mvnw clean package -Dquarkus.container-image.build=true -Dmaven.test.skip
+ 
+Login to console -> Administrator => Operatorhub => Deploy AMQ Streams Operator in current namespace only
 
-Login to console -> Developer => Click on add container images 
+Installed Operators => AMQ Streams -> Kafka -> Create Kafka -> Name = super-heroes-kafka -> create. Wait till Condition is Ready
+
+Installed Operators => AMQ Streams -> Kafka Topics -> Create Kafka Topic -> YAML view -> name: fights, strimzi.io/cluster: super-heroes-kafka, partitions: 1, replicas: 1
+
+Login to console -> Developer => Click on add container images -> Image stream tag from internal registry -> Project : super-heroes-app , Image Stream : rest-fights , Tag : 1.0.0-SNAPSHOT , Runtime icon : Quarkus ; Application : No Application group ; name : rest-fights ; Target Port : 8082 ; Show Advance Routing options -> Insecure traffic : Allow ; Create
+
+Check Route & access rest-fights application
+
