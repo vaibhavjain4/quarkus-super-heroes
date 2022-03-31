@@ -1,0 +1,2 @@
+META-INF/quarkus-javadoc.properties
+io/quarkus/workshop/superheroes/version/runtime/VersionRecorder.class

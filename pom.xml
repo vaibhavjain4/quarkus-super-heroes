@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd"
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>io.quarkus.workshop.super-heroes</groupId>
+    <artifactId>super-parent-root</artifactId>
+    <version>2.0</version>
+    <packaging>pom</packaging>
+    <name>Quarkus Workshop :: Super-Heroes :: R00T</name>
+    <modules>
+        <module>ui-super-heroes</module>
+        <module>load-super-heroes</module>
+    </modules>
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <version>3.3.0</version>
+                <configuration>
+                    <finalName>quarkus-super-heroes</finalName>
+                    <appendAssemblyId>true</appendAssemblyId>
+                    <runOnlyAtExecutionRoot>true</runOnlyAtExecutionRoot>
+                    <attach>false</attach>
+                    <descriptors>
+                        <descriptor>assembly.xml</descriptor>
+                        <descriptor>assembly-complete.xml</descriptor>
+                    </descriptors>
+                    <outputDirectory>dist</outputDirectory>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+    <profiles>
+        <profile>
+            <id>complete</id>
+            <modules>
+                <module>rest-villains</module>
+                <module>rest-heroes</module>
+                <module>rest-fights</module>
+                <module>event-statistics</module>
+                <module>extension-version</module>
+            </modules>
+        </profile>
+        <profile>
+            <id>full</id>
+            <modules>
+                <module>docs</module>
+            </modules>
+        </profile>
+    </profiles>
+</project>

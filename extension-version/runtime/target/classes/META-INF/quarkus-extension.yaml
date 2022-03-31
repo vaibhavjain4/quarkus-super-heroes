@@ -1,0 +1,8 @@
+---
+name: "Extension Version"
+metadata:
+  built-with-quarkus-core: "2.3.0.Final"
+  extension-dependencies:
+  - "io.quarkus:quarkus-arc"
+  - "io.quarkus:quarkus-core"
+artifact: "io.quarkus.workshop.super-heroes:extension-version::jar:1.0.0-SNAPSHOT"
