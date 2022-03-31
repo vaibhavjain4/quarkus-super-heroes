@@ -4,6 +4,8 @@ This repo focuses on deploying quarkus super heroes workshop into an openshift c
 
 Make sure to refer to original quarkus super heroes workshop : https://quarkus.io/quarkus-workshops/super-heroes 
 
+![image](https://user-images.githubusercontent.com/26201808/161063761-b2b2f21e-9b51-4ce6-8a5a-84209bd8189a.png)
+
 # Steps to follow for deploying super heroes microservice app into OpenShift
 
 git clone https://github.com/vaibhavjain4/quarkus-super-heroes.git -b master
@@ -25,4 +27,9 @@ cd rest-villains
  oc expose svc/rest-villains --port=8084
  
  oc get route -> access application on this route
+
+oc new-app --name heroesdb -e POSTGRESQL_USER=superman -e POSTGRESQL_PASSWORD=superman -e POSTGRESQL_DATABASE=heroes_database postgresql:10-el8
+
+cd rest-heroes
+
 
