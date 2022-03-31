@@ -8,7 +8,7 @@ RUN git clone https://github.com/vaibhavjain4/quarkus-super-heroes.git -b master
 ### STAGE 1: Build ###
 FROM node:lts-alpine AS build
 
-USER 1001
+#USER 1001
 
 
 #### make the 'app' folder the current working directory
@@ -33,7 +33,7 @@ FROM nginxinc/nginx-unprivileged AS runner
 #### copy nginx conf
 COPY --from=codeclone ./ui-super-heroes/nginx/*.conf /etc/nginx/conf.d/
 
-USER 1001
+#USER 1001
 
 #### copy artifact build from the 'build environment'
 COPY --from=build /usr/src/app/ /usr/share/nginx/html
