@@ -52,5 +52,5 @@ Installed Operators => AMQ Streams -> Kafka Topics -> Create Kafka Topic -> YAML
 
 Login to console -> Developer => Click on add container images -> Image stream tag from internal registry -> Project : super-heroes-app , Image Stream : rest-fights , Tag : 1.0.0-SNAPSHOT , Runtime icon : Quarkus ; Application : No Application group ; name : rest-fights ; Target Port : 8082 ; Show Advance Routing options -> Insecure traffic : Allow ; Create
 
-Check Route & access rest-fights application
+Check Route & access rest-fights application ; validate http://\<route\>/api/fights/randomfighters
 
