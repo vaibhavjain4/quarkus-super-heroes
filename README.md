@@ -6,6 +6,12 @@ Make sure to refer to original quarkus super heroes workshop : https://quarkus.i
 
 ![image](https://user-images.githubusercontent.com/26201808/161063761-b2b2f21e-9b51-4ce6-8a5a-84209bd8189a.png)
 
+## Demo Recording 
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/421h2h9OUFY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<h3><b> https://youtu.be/421h2h9OUFY </b></h3> 
+
 # Steps to follow for deploying super heroes microservice app into OpenShift
 
 git clone https://github.com/vaibhavjain4/quarkus-super-heroes.git -b master
