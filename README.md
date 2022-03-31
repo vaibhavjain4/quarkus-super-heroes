@@ -54,3 +54,5 @@ Login to console -> Developer => Click on add container images -> Image stream t
 
 Check Route & access rest-fights application ; validate http://\<route\>/api/fights/randomfighters
 
+Also see : https://\<route\>/q/health & https://\<route\>/q/metrics
+
