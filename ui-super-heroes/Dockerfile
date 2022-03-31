@@ -14,8 +14,8 @@ FROM node:lts-alpine AS build
 #WORKDIR /usr/src/app
 
 #RUN chown 1001 /usr/src/app \
-    && chmod "g+rwX" /usr/src/app \
-    && chown 1001:root /usr/src/app
+#    && chmod "g+rwX" /usr/src/app \
+#    && chown 1001:root /usr/src/app
 
 #### copy both 'package.json' and 'package-lock.json' (if available)
 COPY --from=codeclone /opt/quarkus-super-heroes/ui-super-hereos  /usr/src/app
