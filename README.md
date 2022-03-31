@@ -20,5 +20,9 @@ oc new-app --name villainsdb -e POSTGRESQL_USER=superbad -e POSTGRESQL_PASSWORD=
 
 cd rest-villains
 
-./mvnw clean package -Dquarkus.kubernetes.deploy=true -Dmaven.test.skip
+ ./mvnw clean package -Dquarkus.kubernetes.deploy=true -Dmaven.test.skip -Dquarkus.openshift.ports."ports".container-port=8084
+ 
+ oc expose svc/rest-villains --port=8084
+ 
+ oc get route -> access application on this route
 
