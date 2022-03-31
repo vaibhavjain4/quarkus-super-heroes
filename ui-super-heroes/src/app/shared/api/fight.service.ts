@@ -41,7 +41,8 @@ export class FightService {
       this.basePath = basePath;
     }
     if (!window.location.host.includes("localhost")) {
-      this.basePath = window.location.protocol + "//" + window.location.host;
+      this.basePath = basePath;
+      //this.basePath = window.location.protocol + "//" + window.location.host;
     }
 
     if (configuration) {
