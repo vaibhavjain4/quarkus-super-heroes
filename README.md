@@ -56,3 +56,68 @@ Check Route & access rest-fights application ; validate http://\<route\>/api/fig
 
 Also see : https://\<route\>/q/health & https://\<route\>/q/metrics
 
+## Backend components deployment complete. Let's deploy front end components - event statistics & angular ui
+
+cd event-statistics
+
+./mvnw clean package -Dquarkus.kubernetes.deploy=true -Dmaven.test.skip -Dquarkus.openshift.ports."ports".container-port=8085
+
+oc expose svc/event-statistics --port=8085
+
+oc get route -> access application on this route, remember to use http://\<route\> only.
+
+### Deploy Angular UI
+
+Login to Developer Console -> Click on +Add -> Import from Git 
+    Git Repo URL : https://github.com/vaibhavjain4/quarkus-super-heroes.git
+    Git Reference : master
+    Context dir : ui-super-heroes
+    Source Secret : leave it blank
+    Import strategy : Dockerfile
+    Application : No Application group
+    name: ui-super-heroes
+    Resources : Deployment
+    Target port : 8080 (type)
+    Create a route : selected
+    Advanced Routing Options :
+        Hostname : blank
+        Path: /
+        Secure Route : selected
+        TLS termination : Edge
+        Insecure traffic : Allow
+
+Click on Create and wait for build to complete 
+
+If you access the ui application, expect it to not working as the backend api are not yet exposed to browser. Follow the steps :
+
+Login to Developer Console -> Click on Search -> Under Resources drop down -> Search for Route.
+
+Notice ui-super-heroes route url and copy the url.
+
+Create Route ->
+    Name : ui-fights-api
+    Hostname : \<paste the ui-super-heroes route url here\> \(Remove any http:// or https:// from value\)
+    Path : /api/
+    Service : Select rest-fights from dropdown
+    Target port : 8082
+    Secure Route : Check
+    TLS termination : Edge
+    Insecure traffic : Allow
+    
+Click on Create.
+
+Access the ui-super-heroes route application from topology or route sections. Refresh it few times if not getting the images.
+
+![image](https://user-images.githubusercontent.com/26201808/161077044-4b1e4df8-c193-4910-9bae-c41b15f388ab.png)
+
+Go back to event-statistics application page and you should see the data being updated there. If opening a new tab, you might not see any data. Try making few clicks on ui app and leave this open. It shall update as you make few click there. Alternatively also can check log.
+
+<img width="945" alt="image" src="https://user-images.githubusercontent.com/26201808/161077924-0f1b7814-0ed3-42a2-90e7-e748c01fcc17.png">
+
+
+    
+    
+
+
+    
+    
