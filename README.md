@@ -1,4 +1,4 @@
-# quarkus-super-heroes on openshift
+# Deploy quarkus-super-heroes on Red Hat OpenShift
 
 This repo focuses on deploying quarkus super heroes workshop into an openshift cluster. A step not included in original guide.
 
