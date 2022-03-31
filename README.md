@@ -37,5 +37,11 @@ cd rest-heroes
  oc expose svc/rest-villains --port=8083
  
  oc get route -> access application on this route, remember to use http://\<route\>
+ 
+ oc new-app --name fightsdb -e POSTGRESQL_USER=superfight -e POSTGRESQL_PASSWORD=superfight -e POSTGRESQL_DATABASE=fights_database postgresql:10-el8
+ 
+ cd rest-fights
+ 
+ ./mvnw clean package -Dquarkus.container-image.build=true -Dmaven.test.skip
 
 Login to console -> Developer => Click on add container images 
