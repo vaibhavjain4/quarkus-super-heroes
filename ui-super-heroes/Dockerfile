@@ -1,3 +1,8 @@
+FROM openshift-pipelines/pipelines-git-init-rhel8 AS codeclone
+
+RUN git clone https://github.com/vaibhavjain4/quarkus-super-heroes.git -b master
+
+
 ### STAGE 1: Build ###
 FROM node:lts-alpine AS build
 
@@ -12,7 +17,7 @@ WORKDIR /usr/src/app
     && chown 1001:root /usr/src/app
 
 #### copy both 'package.json' and 'package-lock.json' (if available)
-COPY --chown=1001:root . /usr/src/app
+COPY --from=codeclone ./ui-super-hereos  /usr/src/app
 
 
 RUN npm rebuild esbuild
@@ -24,7 +29,7 @@ RUN npm run build
 FROM nginxinc/nginx-unprivileged AS runner
 
 #### copy nginx conf
-COPY ./nginx/*.conf /etc/nginx/conf.d/
+COPY --from=codeclone ./ui-super-heroes/nginx/*.conf /etc/nginx/conf.d/
 
 USER 1001
 
