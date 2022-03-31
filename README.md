@@ -18,3 +18,7 @@ oc new-project super-heroes-app
 
 oc new-app --name villainsdb -e POSTGRESQL_USER=superbad -e POSTGRESQL_PASSWORD=superbad -e POSTGRESQL_DATABASE=villains_database postgresql:10-el8
 
+cd rest-villains
+
+./mvnw clean package -Dquarkus.kubernetes.deploy=true -Dmaven.test.skip
+
