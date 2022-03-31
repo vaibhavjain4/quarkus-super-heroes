@@ -1,33 +1,22 @@
-### STAGE 1: Build ###
-FROM node:lts-alpine AS build
+FROM registry.access.redhat.com/ubi8/nodejs-16-minimal
 
-#### make the 'app' folder the current working directory
-WORKDIR /usr/src/app
+USER 1001
 
-#### copy both 'package.json' and 'package-lock.json' (if available)
-COPY package*.json ./
+WORKDIR /opt/app-root/src
 
-#### install angular cli
-RUN npm install -g @angular/cli
+RUN chown 1001 /opt/app-root/src \
+    && chmod "g+rwX" /opt/app-root/src \
+    && chown 1001:root /opt/app-root/src
 
-#### install project dependencies
-RUN npm install
+COPY --chown=1001:root . /opt/app-root/src/
 
-#### copy things
-COPY . .
+RUN 
 
-#### generate build --prod
-RUN npm run build
+USER 1001
 
-### STAGE 2: Run ###
-FROM nginxinc/nginx-unprivileged
+RUN npm rebuild esbuild
+RUN /opt/app-root/src/package.sh
 
-#### copy nginx conf
-COPY ./nginx/default.conf /etc/nginx/conf.d/default.conf
+EXPOSE 4200
 
-#### copy artifact build from the 'build environment'
-COPY --from=build ./dist /usr/share/nginx/html
-COPY --from=build ./src /usr/share/nginx/html 
-
-#### don't know what this is, but seems cool and techy
-CMD ["nginx", "-g", "daemon off;"]
+CMD ["/opt/app-root/src/run.sh"]

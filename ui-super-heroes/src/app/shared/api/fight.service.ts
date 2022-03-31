@@ -29,6 +29,7 @@ import {Configuration} from '../configuration';
 export class FightService {
 
   protected basePath = 'http://rest-fights:8082';
+  //protected basePath = 'http://rest-fights-odo-learning.apps.cluster-6m667.6m667.sandbox1517.opentlc.com';
   public defaultHeaders = new HttpHeaders();
   public configuration = new Configuration();
 

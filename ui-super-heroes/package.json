@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --configuration production --base-href \".\"",
+    "start": "/opt/app-root/src/node_modules/.bin/ng serve --configuration production --base-href \".\"",
     "build": "ng build --configuration production --base-href \".\"",
     "test": "ng test",
     "lint": "ng lint",
