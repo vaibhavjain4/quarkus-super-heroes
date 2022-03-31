@@ -18,7 +18,7 @@ COPY --chown=1001:root . /usr/src/app
 RUN npm rebuild esbuild
 
 #### generate build --prod
-##RUN npm run build
+RUN npm run build
 
 ### STAGE 2: Run ###
 FROM nginxinc/nginx-unprivileged AS runner
